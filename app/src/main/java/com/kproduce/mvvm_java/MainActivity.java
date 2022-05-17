@@ -1,14 +1,21 @@
 package com.kproduce.mvvm_java;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+import com.kproduce.mvvm_java.databinding.ActivityMainBinding;
+
+import net.csdn.mvvm.ui.activity.BaseBindingActivity;
+
+public class MainActivity extends BaseBindingActivity<ActivityMainBinding> {
+
+    @Override
+    public int getLayoutId() {
+        return R.layout.activity_main;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
     }
+
 }
