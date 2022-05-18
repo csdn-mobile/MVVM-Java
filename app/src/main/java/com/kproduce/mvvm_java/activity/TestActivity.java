@@ -1,8 +1,10 @@
-package com.kproduce.mvvm_java;
+package com.kproduce.mvvm_java.activity;
 
 import android.os.Bundle;
 import android.view.View;
 
+import com.kproduce.mvvm_java.Constants;
+import com.kproduce.mvvm_java.R;
 import com.kproduce.mvvm_java.databinding.ActivityTestBinding;
 
 import net.csdn.mvvm.bus.LiveDataBus;

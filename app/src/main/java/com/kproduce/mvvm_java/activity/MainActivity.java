@@ -1,4 +1,4 @@
-package com.kproduce.mvvm_java;
+package com.kproduce.mvvm_java.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,6 +6,8 @@ import android.view.View;
 
 import androidx.lifecycle.Observer;
 
+import com.kproduce.mvvm_java.Constants;
+import com.kproduce.mvvm_java.R;
 import com.kproduce.mvvm_java.databinding.ActivityMainBinding;
 
 import net.csdn.mvvm.bus.LiveDataBus;
