@@ -18,14 +18,18 @@ public class LiveDataBus {
         return SingletonHolder.INSTANCE;
     }
 
-    public synchronized <T> Observable<T> with(String key) {
+    public synchronized <T> Observable<T> with(String key, Class<T> type) {
         if (!bus.containsKey(key)) {
             bus.put(key, new BusMutableLiveData<>(key));
         }
         return (Observable<T>) bus.get(key);
     }
 
-    public Map<String, BusMutableLiveData<Object>> getBus() {
+    public synchronized Observable<Object> with(String key) {
+        return with(key, Object.class);
+    }
+
+    Map<String, BusMutableLiveData<Object>> getBus() {
         return bus;
     }
 }

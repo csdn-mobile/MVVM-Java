@@ -131,6 +131,7 @@ public class BusMutableLiveData<T> extends MutableLiveData<T> implements Observa
             StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
             if (stackTrace.length > 0) {
                 for (StackTraceElement element : stackTrace) {
+                    // observeForever不感知生命周期
                     if ("android.arch.lifecycle.LiveData".equals(element.getClassName()) &&
                             "observeForever".equals(element.getMethodName())) {
                         return true;

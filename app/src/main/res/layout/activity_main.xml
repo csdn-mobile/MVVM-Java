@@ -11,6 +11,20 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <TextView
+            android:id="@+id/tv_show"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="你好"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/btn_go_test"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="去测试页面"
+            android:textSize="20sp" />
+
         <ImageView
             bind_imageUrl="@{`https://lmg.jj20.com/up/allimg/4k/s/01/210924111121L18-0-lp.jpg`}"
             bind_placeholder="@{@drawable/ic_launcher_background}"
