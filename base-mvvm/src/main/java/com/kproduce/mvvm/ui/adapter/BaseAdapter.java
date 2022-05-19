@@ -13,24 +13,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 单个布局的Adapter
- *
  * @author by KG on 2022/05/19
  */
-public class SingleBindingAdapter<T, DB extends ViewDataBinding> extends RecyclerView.Adapter<BindingHolder<DB>> {
+public abstract class BaseAdapter<T, DB extends ViewDataBinding> extends RecyclerView.Adapter<BaseAdapter.BindingHolder<DB>> {
 
-    private final int mLayoutId;
-    private final int mVariableId;
-    private List<T> mDatas;
+    protected final int mLayoutId;
+    protected final int mVariableId;
+    protected List<T> mDatas;
 
     /**
      * 构造函数
      *
-     * @param layoutId  item布局ID
-     * @param variableId    DataBinding数据源ID
-     * @param datas 数据
+     * @param layoutId   item布局ID
+     * @param variableId DataBinding数据源ID
+     * @param datas      数据
      */
-    protected SingleBindingAdapter(@LayoutRes int layoutId, int variableId, List<T> datas) {
+    protected BaseAdapter(@LayoutRes int layoutId, int variableId, List<T> datas) {
         this.mLayoutId = layoutId;
         this.mVariableId = variableId;
         this.mDatas = datas;
@@ -48,7 +46,10 @@ public class SingleBindingAdapter<T, DB extends ViewDataBinding> extends Recycle
 
     @Override
     public void onBindViewHolder(@NonNull BindingHolder<DB> holder, int position) {
-        holder.mBinding.setVariable(mVariableId, mDatas.get(position));
+        if (position >= mDatas.size()) {
+            return;
+        }
+        onBind(holder.mBinding, mDatas.get(position));
         holder.mBinding.executePendingBindings();
     }
 
@@ -57,4 +58,18 @@ public class SingleBindingAdapter<T, DB extends ViewDataBinding> extends Recycle
         return mDatas.size();
     }
 
+    public abstract void onBind(DB dataBinding, T data);
+
+    /**
+     * 弱化Holder，仅存放DataBinding，内部存放ViewModel或者Bean
+     */
+    public static class BindingHolder<DB extends ViewDataBinding> extends RecyclerView.ViewHolder {
+
+        public final DB mBinding;
+
+        public BindingHolder(@NonNull DB binding) {
+            super(binding.getRoot());
+            this.mBinding = binding;
+        }
+    }
 }

@@ -9,6 +9,7 @@ import com.kproduce.mvvm_java.databinding.ActivityTestBinding;
 
 import com.kproduce.mvvm.bus.LiveDataBus;
 import com.kproduce.mvvm.ui.activity.BaseBindingActivity;
+import com.kproduce.mvvm_java.viewmodel.TestViewModel;
 
 public class TestActivity extends BaseBindingActivity<ActivityTestBinding> {
 
@@ -28,6 +29,8 @@ public class TestActivity extends BaseBindingActivity<ActivityTestBinding> {
                         .setValue("哈哈哈哈");
             }
         });
+
+        mBinding.setViewmodel(new TestViewModel());
     }
 
 }

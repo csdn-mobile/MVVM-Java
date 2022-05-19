@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
+        <variable
+            name="viewmodel"
+            type="com.kproduce.mvvm_java.viewmodel.TestViewModel" />
     </data>
 
     <LinearLayout
@@ -16,5 +20,12 @@
             android:layout_height="wrap_content"
             android:text="发送LiveDataBus"
             android:textSize="20sp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            bind_adapter="@{viewmodel.adapter}"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
     </LinearLayout>
 </layout>
