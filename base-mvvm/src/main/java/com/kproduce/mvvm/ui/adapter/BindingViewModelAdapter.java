@@ -1,7 +1,6 @@
 package com.kproduce.mvvm.ui.adapter;
 
 import androidx.annotation.LayoutRes;
-import androidx.annotation.NonNull;
 import androidx.databinding.ViewDataBinding;
 
 import com.kproduce.mvvm.viewmodel.BaseAdapterViewModel;
@@ -13,40 +12,34 @@ import java.util.List;
 
 /**
  * 单个布局使用DataBinding和ViewModel的Adapter
- *
+ * <p>
  * （注：此处的ViewModel仅是将逻辑挪移到ViewModel中，没有生命周期作用。
  * 因为每个ViewModel只会在Owner中保存一份，并且数据的恢复应该由整个页面的ViewModel负责）
  *
  * @author by KG on 2022/05/19
  */
-public class BindingViewModelAdapter<T, DB extends ViewDataBinding, VM extends BaseAdapterViewModel<T>> extends BaseAdapter<T, DB> {
+public class BindingViewModelAdapter<T, DB extends ViewDataBinding> extends BaseAdapter<T, DB> {
 
-    private final Class<VM> mVmClass;
+    private final Class<? extends BaseAdapterViewModel<T>> mVmClass;
 
-    public BindingViewModelAdapter(@LayoutRes int layoutId, int variableId, List<T> datas) {
+    public BindingViewModelAdapter(@LayoutRes int layoutId, int variableId, Class<? extends BaseAdapterViewModel<T>> clazz, List<T> datas) {
         super(layoutId, variableId, datas);
-        this.mVmClass = getViewModelClass();
+        this.mVmClass = clazz;
     }
 
     @Override
     public void onBind(DB dataBinding, T data) {
-        VM instance = getViewModelInstance(data);
+        BaseAdapterViewModel<T> instance = getViewModelInstance(data);
         if (instance != null) {
             dataBinding.setVariable(mVariableId, instance);
         }
     }
 
-    private Class<VM> getViewModelClass() {
-        Type type = getClass().getGenericSuperclass();
-        return (Class<VM>) ((ParameterizedType) type).getActualTypeArguments()[2];
-    }
-
-    private VM getViewModelInstance(T data) {
-        VM instance = null;
+    private BaseAdapterViewModel<T> getViewModelInstance(T data) {
+        BaseAdapterViewModel<T> instance = null;
         if (mVmClass != null) {
             try {
-                Constructor<VM> declaredConstructor = mVmClass.getDeclaredConstructor(data.getClass());
-                instance = declaredConstructor.newInstance(data);
+                instance = mVmClass.getDeclaredConstructor(data.getClass()).newInstance(data);
             } catch (Exception e) {
                 e.printStackTrace();
             }

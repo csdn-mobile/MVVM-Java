@@ -12,7 +12,7 @@ import java.util.List;
 
 public class TestViewModel extends BaseViewModel {
 
-    public BindingViewModelAdapter<TestBean, ItemTestBinding, TestAdapterViewModel> adapter;
+    public BindingViewModelAdapter<TestBean, ItemTestBinding> adapter;
 
     public TestViewModel() {
         List<TestBean> datas = new ArrayList<>();
@@ -20,8 +20,8 @@ public class TestViewModel extends BaseViewModel {
         datas.add(new TestBean("李四"));
         datas.add(new TestBean("王五"));
         datas.add(new TestBean("徐六"));
-        datas.add(new TestBean("你爹"));
-        adapter = new BindingViewModelAdapter<>(R.layout.item_test, BR.viewmodel, datas);
+        datas.add(new TestBean("777"));
+        adapter = new BindingViewModelAdapter<>(R.layout.item_test, BR.viewmodel, TestAdapterViewModel.class, datas);
     }
 
 }
