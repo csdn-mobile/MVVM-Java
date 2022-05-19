@@ -1,4 +1,4 @@
-package net.csdn.mvvm.ui.fragment;
+package com.kproduce.mvvm.ui.fragment;
 
 import androidx.annotation.LayoutRes;
 import androidx.fragment.app.Fragment;

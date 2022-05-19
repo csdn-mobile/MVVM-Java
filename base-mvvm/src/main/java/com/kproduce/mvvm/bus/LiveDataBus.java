@@ -1,4 +1,4 @@
-package net.csdn.mvvm.bus;
+package com.kproduce.mvvm.bus;
 
 import java.util.HashMap;
 import java.util.Map;

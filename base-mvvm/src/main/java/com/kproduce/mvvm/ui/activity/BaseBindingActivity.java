@@ -1,4 +1,4 @@
-package net.csdn.mvvm.ui.activity;
+package com.kproduce.mvvm.ui.activity;
 
 import android.os.Bundle;
 

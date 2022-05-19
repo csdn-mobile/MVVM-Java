@@ -1,4 +1,4 @@
-package net.csdn.mvvm.databinding;
+package com.kproduce.mvvm.databinding;
 
 import androidx.databinding.BindingAdapter;
 import androidx.recyclerview.widget.RecyclerView;

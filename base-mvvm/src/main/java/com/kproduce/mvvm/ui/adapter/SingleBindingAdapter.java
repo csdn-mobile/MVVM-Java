@@ -1,4 +1,4 @@
-package net.csdn.mvvm.ui.adapter;
+package com.kproduce.mvvm.ui.adapter;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -12,13 +12,25 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BindingAdapter<T, DB extends ViewDataBinding> extends RecyclerView.Adapter<BindingHolder<DB>> {
+/**
+ * 单个布局的Adapter
+ *
+ * @author by KG on 2022/05/19
+ */
+public class SingleBindingAdapter<T, DB extends ViewDataBinding> extends RecyclerView.Adapter<BindingHolder<DB>> {
 
     private final int mLayoutId;
     private final int mVariableId;
     private List<T> mDatas;
 
-    protected BindingAdapter(@LayoutRes int layoutId, int variableId, List<T> datas) {
+    /**
+     * 构造函数
+     *
+     * @param layoutId  item布局ID
+     * @param variableId    DataBinding数据源ID
+     * @param datas 数据
+     */
+    protected SingleBindingAdapter(@LayoutRes int layoutId, int variableId, List<T> datas) {
         this.mLayoutId = layoutId;
         this.mVariableId = variableId;
         this.mDatas = datas;

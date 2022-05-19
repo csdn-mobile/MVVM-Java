@@ -1,4 +1,4 @@
-package net.csdn.mvvm.viewmodel;
+package com.kproduce.mvvm.viewmodel;
 
 import android.app.Application;
 

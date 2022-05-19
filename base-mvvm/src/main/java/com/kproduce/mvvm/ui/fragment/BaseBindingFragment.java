@@ -1,4 +1,4 @@
-package net.csdn.mvvm.ui.fragment;
+package com.kproduce.mvvm.ui.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

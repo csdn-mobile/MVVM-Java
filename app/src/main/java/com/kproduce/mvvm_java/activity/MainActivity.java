@@ -10,8 +10,8 @@ import com.kproduce.mvvm_java.Constants;
 import com.kproduce.mvvm_java.R;
 import com.kproduce.mvvm_java.databinding.ActivityMainBinding;
 
-import net.csdn.mvvm.bus.LiveDataBus;
-import net.csdn.mvvm.ui.activity.BaseBindingActivity;
+import com.kproduce.mvvm.bus.LiveDataBus;
+import com.kproduce.mvvm.ui.activity.BaseBindingActivity;
 
 public class MainActivity extends BaseBindingActivity<ActivityMainBinding> {
 

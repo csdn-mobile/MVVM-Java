@@ -1,17 +1,13 @@
-package net.csdn.mvvm.ui.fragment;
+package com.kproduce.mvvm.ui.activity;
 
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import androidx.lifecycle.ViewModelProvider;
 
-import net.csdn.mvvm.viewmodel.BaseViewModel;
+import com.kproduce.mvvm.viewmodel.BaseViewModel;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
@@ -21,19 +17,22 @@ import java.lang.reflect.Type;
  *
  * @author by KG on 2022/05/13
  */
-public abstract class BaseBindingViewModelFragment<DB extends ViewDataBinding, VM extends BaseViewModel> extends BaseFragment {
+public abstract class BaseBindingViewModelActivity<DB extends ViewDataBinding, VM extends BaseViewModel> extends BaseActivity {
 
     protected DB mBinding;
     protected VM mViewModel;
 
-    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        mBinding = DataBindingUtil.inflate(inflater, getLayoutId(), container, false);
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        init();
+    }
+
+    private void init() {
+        mBinding = DataBindingUtil.setContentView(this, getLayoutId());
         mViewModel = new ViewModelProvider(this).get(getViewModelClass());
         mBinding.setLifecycleOwner(this);
         mBinding.setVariable(getVariableId(), mViewModel);
-        return mBinding.getRoot();
     }
 
     private Class<VM> getViewModelClass() {

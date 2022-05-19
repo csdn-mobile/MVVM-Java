@@ -1,4 +1,4 @@
-package net.csdn.mvvm.bus;
+package com.kproduce.mvvm.bus;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LifecycleOwner;

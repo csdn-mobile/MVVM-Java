@@ -1,4 +1,4 @@
-package net.csdn.mvvm.bus;
+package com.kproduce.mvvm.bus;
 
 import android.os.Handler;
 import android.os.Looper;

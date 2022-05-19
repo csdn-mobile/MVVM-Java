@@ -1,4 +1,4 @@
-package net.csdn.mvvm.ui.activity;
+package com.kproduce.mvvm.ui.activity;
 
 import androidx.annotation.LayoutRes;
 import androidx.appcompat.app.AppCompatActivity;

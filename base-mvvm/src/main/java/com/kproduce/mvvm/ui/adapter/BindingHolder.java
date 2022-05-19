@@ -1,4 +1,4 @@
-package net.csdn.mvvm.ui.adapter;
+package com.kproduce.mvvm.ui.adapter;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.ViewDataBinding;
