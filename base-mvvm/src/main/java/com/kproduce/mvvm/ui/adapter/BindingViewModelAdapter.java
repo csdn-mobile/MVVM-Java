@@ -22,6 +22,10 @@ public class BindingViewModelAdapter<T, DB extends ViewDataBinding> extends Base
 
     private final Class<? extends BaseAdapterViewModel<T>> mVmClass;
 
+    public BindingViewModelAdapter(@LayoutRes int layoutId, int variableId, Class<? extends BaseAdapterViewModel<T>> clazz) {
+        this(layoutId, variableId, clazz, null);
+    }
+
     public BindingViewModelAdapter(@LayoutRes int layoutId, int variableId, Class<? extends BaseAdapterViewModel<T>> clazz, List<T> datas) {
         super(layoutId, variableId, datas);
         this.mVmClass = clazz;
