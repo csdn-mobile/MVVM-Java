@@ -5,8 +5,8 @@ import com.kproduce.mvvm_java.bean.TestBean;
 
 public class TestAdapterViewModel extends BaseAdapterViewModel<TestBean> {
 
-    protected TestAdapterViewModel(TestBean data) {
-        super(data);
+    protected TestAdapterViewModel(int position, TestBean data) {
+        super(position, data);
     }
 
 

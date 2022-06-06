@@ -18,4 +18,12 @@ public class ViewBindingAdapter {
     public static void isGone(View view, boolean isGone) {
         view.setVisibility(isGone ? View.GONE : View.VISIBLE);
     }
+
+    /**
+     * 是否选中
+     */
+    @BindingAdapter("bind_isSelected")
+    public static void isSelected(View view, boolean isSelected) {
+        view.setSelected(isSelected);
+    }
 }
