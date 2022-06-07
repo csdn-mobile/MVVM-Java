@@ -24,6 +24,11 @@ public class TestActivity extends BaseBindingViewModelActivity<ActivityTestBindi
     }
 
     @Override
+    public Class<TestViewModel> getViewModelClass() {
+        return TestViewModel.class;
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mBinding.btnSendBus.setOnClickListener(new View.OnClickListener() {

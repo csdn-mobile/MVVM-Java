@@ -9,9 +9,6 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.kproduce.mvvm.viewmodel.BaseViewModel;
 
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
-
 /**
  * 使用DataBinding与ViewModel的Activity基类
  *
@@ -35,10 +32,10 @@ public abstract class BaseBindingViewModelActivity<DB extends ViewDataBinding, V
         mBinding.setVariable(getVariableId(), mViewModel);
     }
 
-    private Class<VM> getViewModelClass() {
-        Type type = getClass().getGenericSuperclass();
-        return (Class<VM>) ((ParameterizedType) type).getActualTypeArguments()[1];
-    }
+//    private Class<VM> getViewModelClass() {
+//        Type type = getClass().getGenericSuperclass();
+//        return (Class<VM>) ((ParameterizedType) type).getActualTypeArguments()[1];
+//    }
 
     /**
      * 获取ViewModel在DataBinding布局中的ID
@@ -47,4 +44,11 @@ public abstract class BaseBindingViewModelActivity<DB extends ViewDataBinding, V
      * @return variable的ID
      */
     public abstract int getVariableId();
+
+    /**
+     * 获取当前ViewModel类的class
+     *
+     * @return ViewModel类的class
+     */
+    public abstract Class<VM> getViewModelClass();
 }
