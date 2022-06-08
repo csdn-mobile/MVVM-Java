@@ -1,6 +1,7 @@
 package com.kproduce.mvvm_java.activity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.kproduce.mvvm.bus.LiveDataBus;
@@ -24,13 +25,9 @@ public class TestActivity extends BaseBindingViewModelActivity<ActivityTestBindi
     }
 
     @Override
-    public Class<TestViewModel> getViewModelClass() {
-        return TestViewModel.class;
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.e("onActivityCreated====", "Activity");
         mBinding.btnSendBus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
