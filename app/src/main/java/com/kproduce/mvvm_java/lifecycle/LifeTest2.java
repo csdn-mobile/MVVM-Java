@@ -1,22 +1,25 @@
-package com.kproduce.mvvm.lifecycle;
+package com.kproduce.mvvm_java.lifecycle;
+
+import android.util.Log;
 
 import androidx.lifecycle.LifecycleOwner;
 
-public abstract class LifecycleObserverImpl implements LifecycleObserverInterface {
+import com.kproduce.mvvm.lifecycle.LifecycleObserverInterface;
+
+public class LifeTest2 implements LifecycleObserverInterface {
 
     @Override
     public void onCreate(LifecycleOwner owner) {
-
+        Log.e("LifeTest2", "========onCreate");
     }
 
     @Override
     public void onStart(LifecycleOwner owner) {
-
     }
 
     @Override
     public void onResume(LifecycleOwner owner) {
-
+        Log.e("LifeTest2", "========onResume");
     }
 
     @Override

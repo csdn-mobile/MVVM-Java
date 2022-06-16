@@ -9,12 +9,12 @@ import com.kproduce.mvvm.lifecycle.LifecycleObserverImpl;
 public class LifeTest extends LifecycleObserverImpl {
 
     @Override
-    protected void onCreate(LifecycleOwner owner) {
+    public void onCreate(LifecycleOwner owner) {
         Log.e("LifeTest", "========onCreate");
     }
 
     @Override
-    protected void onResume(LifecycleOwner owner) {
+    public void onResume(LifecycleOwner owner) {
         Log.e("LifeTest", "========onResume");
     }
 }
