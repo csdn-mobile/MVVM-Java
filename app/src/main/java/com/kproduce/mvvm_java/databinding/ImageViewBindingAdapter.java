@@ -1,4 +1,4 @@
-package com.kproduce.mvvm.databinding;
+package com.kproduce.mvvm_java.databinding;
 
 import android.graphics.drawable.Drawable;
 import android.widget.ImageView;

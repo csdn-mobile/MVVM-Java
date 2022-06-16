@@ -10,6 +10,7 @@ import com.kproduce.mvvm_java.BR;
 import com.kproduce.mvvm_java.Constants;
 import com.kproduce.mvvm_java.R;
 import com.kproduce.mvvm_java.databinding.ActivityTestBinding;
+import com.kproduce.mvvm_java.lifecycle.LifeTest;
 import com.kproduce.mvvm_java.viewmodel.TestViewModel;
 
 public class TestActivity extends BaseBindingViewModelActivity<ActivityTestBinding, TestViewModel> {
@@ -27,7 +28,7 @@ public class TestActivity extends BaseBindingViewModelActivity<ActivityTestBindi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.e("onActivityCreated====", "Activity");
+        getLifecycle().addObserver(new LifeTest());
         mBinding.btnSendBus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
