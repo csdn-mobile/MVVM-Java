@@ -6,7 +6,7 @@
 
         <variable
             name="viewmodel"
-            type="com.kproduce.mvvm_java.viewmodel.TestViewModel" />
+            type="net.csdn.mvvm_java_demo.viewmodel.TestViewModel" />
     </data>
 
     <LinearLayout

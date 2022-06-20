@@ -4,7 +4,7 @@ android {
     compileSdkVersion compile_sdk_version
     buildToolsVersion build_tools_version
     defaultConfig {
-        applicationId "com.kproduce.mvvm_java"
+        applicationId "net.csdn.mvvm_java_demo"
         minSdkVersion min_sdk_version
         targetSdkVersion target_sdk_version
         versionCode version_code
