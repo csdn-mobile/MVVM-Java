@@ -5,6 +5,7 @@ import androidx.databinding.ViewDataBinding;
 
 import net.csdn.mvvm_java.viewmodel.BaseAdapterViewModel;
 
+import java.lang.reflect.Constructor;
 import java.util.List;
 
 /**
@@ -40,7 +41,9 @@ public class BindingViewModelAdapter<T, DB extends ViewDataBinding> extends Base
         BaseAdapterViewModel<T> instance = null;
         if (mVmClass != null) {
             try {
-                instance = mVmClass.getDeclaredConstructor(int.class, data.getClass()).newInstance(position, data);
+                Constructor<? extends BaseAdapterViewModel<T>> declaredConstructor = mVmClass.getDeclaredConstructor(int.class, data.getClass());
+                declaredConstructor.setAccessible(true);
+                instance = declaredConstructor.newInstance(position, data);
             } catch (Exception e) {
                 e.printStackTrace();
             }
